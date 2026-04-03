@@ -10,6 +10,7 @@ This repo helps developers quickly get started with Gemma‑4 — whether you wa
 ## Setup Options
 
 ### Option A: Cloud Inference (Google AI Studio API Key)
+👉 See [QuickStart.py](examples\Quickstart.py) for a runnable script.
 1. Go to [Google AI Studio](https://aistudio.google.com/).
 2. Generate a free API key.
 3. Install the SDK:
@@ -40,6 +41,7 @@ This repo helps developers quickly get started with Gemma‑4 — whether you wa
 ---
 
 ### 📋 Listing Available Models
+👉 See [list_models.py](list_models.py) for a runnable script.
 
 After setting up your API key and running the quickstart script, you may want to see which models are available to your account. You can list them like this:
 
@@ -78,8 +80,8 @@ print(response.text)
 ---
 
 ### Option B: Local Inference (Weights from Hugging Face/Kaggle)
-
 ⚠️ **Note:** This downloads more than 10GB of data, so make sure you have enough disk space and a good internet connection.
+👉 See [QuickStart_local.py](examples/QuickStart_local.py) for a runnable script.
 1. Install dependencies:
    ```bash
    pip install torch transformers tokenizers huggingface_hub
@@ -111,10 +113,8 @@ print(response.text)
 ---
 
 ## Examples
-- `examples/text_generation.py` → Simple text generation.
 - `examples/reasoning_demo.py` → Long‑context reasoning.
-- `examples/tool_use_example.py` → Integrating external tools (e.g., calculator).
-- `examples/edge_inference.py` → Running Gemma‑4 on constrained devices.
+- `examples/tool_use_demo.py` → Integrating external tools (e.g., calculator).
 
 ---
 

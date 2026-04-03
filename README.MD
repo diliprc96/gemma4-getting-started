@@ -113,8 +113,10 @@ print(response.text)
 ---
 
 ## Examples
-- `examples/reasoning_demo.py` → Long‑context reasoning.
+- `examples/reasoning_demo.py` → reasoning and siimple text generation.
 - `examples/tool_use_demo.py` → Integrating external tools (e.g., calculator).
+- `examples/structured_output.py` → Parse the structured output from the Gemma model.
+- `examples\long_context_demo.py` → pass long context along with prompt.
 
 ---
 
@@ -126,7 +128,6 @@ Interactive exploration: `notebooks/gemma4_quickstart.ipynb`
 ## Resources
 - [Google AI Studio](https://aistudio.google.com/)  
 - [Gemma‑4 on Hugging Face](https://huggingface.co/google)  
-- [Gemma‑4 Kaggle Challenge](https://www.kaggle.com/)  
 
 ---
 

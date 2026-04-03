@@ -82,17 +82,23 @@ print(response.text)
 ⚠️ **Note:** This downloads more than 10GB of data, so make sure you have enough disk space and a good internet connection.
 1. Install dependencies:
    ```bash
-   pip install torch transformers
+   pip install torch transformers tokenizers huggingface_hub
    ```
-2. Download weights from Hugging Face:
+2. Save your Hugging face Access token in a `.env` file
+   ```bash
+   HF_TOKEN=your_access_token_here
+   ```
+3. Download weights from Hugging Face:
    ```bash
    git lfs install
    git clone https://huggingface.co/google/gemma-4-E2B
    ```
-3. Quickstart script:
+4. Quickstart script:
    ```python
    from transformers import AutoTokenizer, AutoModelForCausalLM
+   from dotenv import load_dotenv
 
+   load_dotenv()
    model_name = "google/gemma-4-E2B"
    tokenizer = AutoTokenizer.from_pretrained(model_name)
    model = AutoModelForCausalLM.from_pretrained(model_name)

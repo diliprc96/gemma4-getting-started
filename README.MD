@@ -78,6 +78,8 @@ print(response.text)
 ---
 
 ### Option B: Local Inference (Weights from Hugging Face/Kaggle)
+
+⚠️ **Note:** This downloads more than 10GB of data, so make sure you have enough disk space and a good internet connection.
 1. Install dependencies:
    ```bash
    pip install torch transformers
@@ -85,13 +87,13 @@ print(response.text)
 2. Download weights from Hugging Face:
    ```bash
    git lfs install
-   git clone https://huggingface.co/google/gemma-4-4b
+   git clone https://huggingface.co/google/gemma-4-E2B
    ```
 3. Quickstart script:
    ```python
    from transformers import AutoTokenizer, AutoModelForCausalLM
 
-   model_name = "google/gemma-4-4b"
+   model_name = "google/gemma-4-E2B"
    tokenizer = AutoTokenizer.from_pretrained(model_name)
    model = AutoModelForCausalLM.from_pretrained(model_name)
 

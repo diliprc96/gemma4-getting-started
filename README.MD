@@ -14,27 +14,66 @@ This repo helps developers quickly get started with Gemma‑4 — whether you wa
 2. Generate a free API key.
 3. Install the SDK:
    ```bash
-   pip install google-generativeai
+   pip install -q -U google-genai
    ```
 4. Save your API key in a `.env` file:
    ```
-   GEMMA_API_KEY=your_api_key_here
+   GEMINI_API_KEY=your_api_key_here
    ```
 5. Quickstart script:
    ```python
-   import os
-   import google.generativeai as genai
-   from dotenv import load_dotenv
+    from google import genai
+    from dotenv import load_dotenv
 
-   load_dotenv()
-   genai.configure(api_key=os.getenv("GEMMA_API_KEY"))
+    load_dotenv()
+    # The client gets the API key from the environment variable `GEMINI_API_KEY`.
+    client = genai.Client()
 
-   model = genai.GenerativeModel("gemma-4")
-   response = model.generate_content("Explain quantum computing in simple terms")
-   print(response.text)
+    response = client.models.generate_content(
+        model="gemini-3-flash-preview", contents="Explain how AI works in a few words"
+    )
+    print(response.text)
    ```
 
 ⚠️ **Note:** Never commit your API key to GitHub. Use `.env` or environment variables.
+
+---
+
+### 📋 Listing Available Models
+
+After setting up your API key and running the quickstart script, you may want to see which models are available to your account. You can list them like this:
+
+```python
+from google import genai
+from dotenv import load_dotenv
+
+load_dotenv()
+client = genai.Client()
+
+# List all models available
+models = client.models.list().page
+for m in models:
+    print(m.display_name, "->", m.name)
+```
+
+**Sample Output:**
+```
+Gemini 2.5 Flash -> models/gemini-2.5-flash
+Gemini 2.5 Pro -> models/gemini-2.5-pro
+Gemma 4 26B A4B IT -> models/gemma-4-26b-a4b-it
+Gemma 4 31B IT -> models/gemma-4-31b-it
+...
+```
+
+You can then choose the model you want by passing its `name` into your inference call:
+
+```python
+response = client.models.generate_content(
+    model="models/gemma-4-26b-a4b-it",
+    contents="Explain how AI works in a few words"
+)
+print(response.text)
+```
 
 ---
 
